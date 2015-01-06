@@ -162,6 +162,8 @@ String. Default is [@Author::CSSON](https://metacpan.org/pod/Pod::Weaver::Plugin
 
 [Dist::Zilla](https://metacpan.org/pod/Dist::Zilla)
 
+[Pod::Weaver::PluginBundle::Author::CSSON](https://metacpan.org/pod/Pod::Weaver::PluginBundle::Author::CSSON)
+
 # AUTHOR
 
 Erik Carlsson <info@code301.com>

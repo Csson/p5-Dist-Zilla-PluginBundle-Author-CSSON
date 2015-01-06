@@ -119,7 +119,6 @@ sub configure {
         ['MetaNoIndex', { directory => [qw/t xt inc share eg examples/] } ],
         ['Prereqs::FromCPANfile'],
         [ $self->installer ],
-        ['Iller::MetaGeneratedBy'],
         ['MetaJSON'],
         ['ContributorsFromGit'],
 
@@ -310,5 +309,7 @@ String. Default is L<@Author::CSSON|Pod::Weaver::PluginBundle::Author::CSSON>.
 =head1 SEE ALSO
 
 L<Dist::Zilla>
+
+L<Pod::Weaver::PluginBundle::Author::CSSON>
 
 =cut
