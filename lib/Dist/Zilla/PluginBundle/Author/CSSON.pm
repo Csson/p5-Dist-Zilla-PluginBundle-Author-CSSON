@@ -272,6 +272,10 @@ It is about the same as a dist.ini with these plugins specified:
 
 =head1 OPTIONS
 
+=head2 homepage
+
+String. Default is the release's page on metacpan.org. Not set if C<is_private> is true.
+
 =head2 installer
 
 String. Default is L<ModuleBuildTiny|Dist::Zilla::ModuleBuildTiny>.
@@ -302,10 +306,6 @@ If true, L<Dist::Zilla::Plugin::TaskWeaver> is included instead of L<Dist::Zilla
 =head2 weaver_config
 
 String. Default is L<@Author::CSSON|Pod::Weaver::PluginBundle::Author::CSSON>.
-
-=head2 homepage
-
-String. Default is the release's page on metacpan.org. Not set if C<is_private> is true.
 
 =head1 SEE ALSO
 
