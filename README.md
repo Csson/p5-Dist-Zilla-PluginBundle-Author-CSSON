@@ -123,6 +123,10 @@ It is about the same as a dist.ini with these plugins specified:
 
 # OPTIONS
 
+## homepage
+
+String. Default is the release's page on metacpan.org. Not set if `is_private` is true.
+
 ## installer
 
 String. Default is [ModuleBuildTiny](https://metacpan.org/pod/Dist::Zilla::ModuleBuildTiny).
@@ -153,10 +157,6 @@ If true, [Dist::Zilla::Plugin::TaskWeaver](https://metacpan.org/pod/Dist::Zilla:
 ## weaver\_config
 
 String. Default is [@Author::CSSON](https://metacpan.org/pod/Pod::Weaver::PluginBundle::Author::CSSON).
-
-## homepage
-
-String. Default is the release's page on metacpan.org. Not set if `is_private` is true.
 
 # SEE ALSO
 
