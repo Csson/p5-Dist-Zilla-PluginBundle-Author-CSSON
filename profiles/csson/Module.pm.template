@@ -2,7 +2,7 @@ use 5.10.1;
 use strict;
 use warnings;
 
-package Dist::Zilla::PluginBundle::CSSON;
+package {{$name}};
 
 # VERSION
 
@@ -18,11 +18,11 @@ __END__
 
 =head1 SYNOPSIS
 
-  use Dist::Zilla::PluginBundle::CSSON;
+    use {{$name}};
 
 =head1 DESCRIPTION
 
-Dist::Zilla::PluginBundle::CSSON is ...
+{{$name}} is ...
 
 =head1 SEE ALSO
 
