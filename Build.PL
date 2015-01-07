@@ -18,7 +18,7 @@ my %module_build_args = (
     "Erik Carlsson <info\@code301.com>"
   ],
   "dist_name" => "Dist-Zilla-PluginBundle-Author-CSSON",
-  "dist_version" => "0.1102",
+  "dist_version" => "0.1200",
   "license" => "perl",
   "module_name" => "Dist::Zilla::PluginBundle::Author::CSSON",
   "recommends" => {},

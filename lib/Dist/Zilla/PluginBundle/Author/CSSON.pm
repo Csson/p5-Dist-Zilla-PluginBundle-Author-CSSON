@@ -132,11 +132,13 @@ sub configure {
         ['ContributorsFromGit'],
         (
             $ENV{'ILLER_AUTHOR_TEST'} ?
-            ['Test::Kwalitee::Extra']
+            (
+            ['Test::Kwalitee::Extra'],
             ['Test::NoTabs'],
             ['Test::EOL'],
             ['Test::EOF'],
             ['PodSyntaxTests'],
+            )
             :
             ()
         ),
