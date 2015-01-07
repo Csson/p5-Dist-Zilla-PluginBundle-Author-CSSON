@@ -8,13 +8,16 @@ Revision history for Dist-Zilla-PluginBundle-CSSON
  [Documentation]
 
  [Enhancements]
- - Make all Dzil plugin tests optional.
 
  [Meta]
 
  [New Features]
 
  [Revision]
+
+0.1102 2015-01-07T18:57:27Z CET
+ [Enhancements]
+ - Make all Dzil plugin tests optional.
 
 0.1101 2015-01-07T18:27:41Z CET
  [Meta]
