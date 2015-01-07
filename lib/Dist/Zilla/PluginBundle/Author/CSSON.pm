@@ -16,6 +16,7 @@ with 'Dist::Zilla::Role::PluginBundle::Config::Slicer';
 use namespace::autoclean;
 use List::AllUtils 'none';
 use Config::INI;
+use Path::Tiny;
 
 has installer => (
     is => 'rw',
@@ -56,7 +57,13 @@ has has_travis => (
 
 
 sub _build_homepage {
-    my $distname = Config::INI::Reader->read_file('dist.ini')->{'_'}{'name'};
+    my $distname;
+    if(path('iller.ini')->exists) {
+        $distname = Config::INI::Reader->read_file('iller.ini')->{'_'}{'name'};
+    }
+    elsif(path('dist.ini')->exists) {
+        $distname = Config::INI::Reader->read_file('dist.ini')->{'_'}{'name'};
+    }
     return sprintf 'https://metacpan.org/release/' . $distname;
 }
 
@@ -79,6 +86,7 @@ sub configure {
                                 'META.json',
                                 'LICENSE',
                                 'README.md',
+                                'iller.ini',
                                 $self->build_file,
                             ] },
         ],
@@ -100,6 +108,7 @@ sub configure {
                                     numify_version => 0,
                                   }
         ],
+        ['Iller::CleanupDistIni'],
         (
             $self->is_task ?
             ['TaskWeaver']
