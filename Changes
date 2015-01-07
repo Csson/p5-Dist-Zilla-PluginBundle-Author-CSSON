@@ -10,11 +10,14 @@ Revision history for Dist-Zilla-PluginBundle-CSSON
  [Enhancements]
 
  [Meta]
- - Added missing prereqs.
 
  [New Features]
 
  [Revision]
+
+0.1101 2015-01-07T18:27:41Z CET
+ [Meta]
+ - Added missing prereqs.
 
 0.1100 2015-01-07T18:06:42Z CET
  [Bug Fixes]
