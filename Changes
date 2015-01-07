@@ -4,10 +4,14 @@ Revision history for Dist-Zilla-PluginBundle-CSSON
  [API Changes]
 
  [Bug Fixes]
+ - Actually use settings..
 
  [Documentation]
 
  [Enhancements]
+ - Make it easier to use travis
+ - Make it optional to run Test::Kwalitee::Extra
+ - Use DZ::PluginBundle::Author::CSSON
 
  [Meta]
 
