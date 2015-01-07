@@ -4,7 +4,7 @@ Dist::Zilla::PluginBundle::Author::CSSON - Dist::Zilla like Csson
 
 # VERSION
 
-version 0.1101
+version 0.1102
 
 # SYNOPSIS
 
