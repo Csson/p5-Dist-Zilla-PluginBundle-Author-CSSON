@@ -5,12 +5,12 @@ use warnings;
 package {{$name}};
 
 # VERSION
+# ABSTRACT: Short intro
 
 
 
 1;
 
-# ABSTRACT: Short intro
 
 __END__
 

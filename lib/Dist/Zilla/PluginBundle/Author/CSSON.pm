@@ -146,11 +146,11 @@ sub configure {
             ['Test::NoTabs'],
             ['Test::EOL'],
             ['Test::EOF'],
-            ['PodSyntaxTests'],
             )
             :
             ()
         ),
+        ['PodSyntaxTests'],
         ['MetaYAML'],
         ['License'],
         ['ExtraTests'],
