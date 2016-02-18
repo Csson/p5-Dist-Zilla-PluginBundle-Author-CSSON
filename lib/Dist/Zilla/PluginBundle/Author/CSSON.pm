@@ -6,7 +6,7 @@ package Dist::Zilla::PluginBundle::Author::CSSON;
 
 # ABSTRACT: Dist::Zilla plugin list (deprecated)
 # AUTHORITY
-our $VERSION = '0.1103';
+our $VERSION = '0.1104';
 
 use Moose;
 use MooseX::AttributeShortcuts;

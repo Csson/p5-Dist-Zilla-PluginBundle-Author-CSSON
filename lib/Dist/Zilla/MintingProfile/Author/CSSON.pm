@@ -1,7 +1,7 @@
 package Dist::Zilla::MintingProfile::Author::CSSON;
 
 # AUTHORITY
-our $VERSION = '0.1103';
+our $VERSION = '0.1104';
 
 use Moose;
 with 'Dist::Zilla::Role::MintingProfile::ShareDir';
