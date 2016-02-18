@@ -4,7 +4,9 @@ use warnings;
 
 package Dist::Zilla::PluginBundle::Author::CSSON;
 
-# VERSION
+# ABSTRACT: Dist::Zilla plugin list (deprecated)
+# AUTHORITY
+our $VERSION = '0.1103';
 
 use Moose;
 use MooseX::AttributeShortcuts;
@@ -98,12 +100,13 @@ sub configure {
         ],
         ['ReversionOnRelease', { prompt => 1 } ],
         ['OurPkgVersion'],
+        ['PodnameFromClassname'],
         ['NextRelease', { format => '%v  %{yyyy-MM-dd HH:mm:ss VVV}d' } ],
         ['PreviousVersion::Changelog'],
 
         ['NextVersion::Semantic', { major => '',
                                     minor => "API Changes, New Features, Enhancements",
-                                    revision => "Revision, Bug Fixes, Documentation, Meta",
+                                    revision => "Requirements, Testing, Revision, Bug Fixes, Documentation, Meta",
                                     format => '%d.%02d%02d',
                                     numify_version => 0,
                                   }
@@ -120,6 +123,7 @@ sub configure {
                            'Changes',
                            'META.json',
                            'README.md',
+                           'README',
                            $self->build_file,
                        ] },
         ],
@@ -129,6 +133,7 @@ sub configure {
             :
             ['GithubMeta', { issues => 1, homepage => $self->homepage } ]
         ),
+        ['Readme'],
         ['ReadmeAnyFromPod', { filename => 'README.md',
                                type => 'markdown',
                                location => 'root',
@@ -138,14 +143,17 @@ sub configure {
         ['Prereqs::FromCPANfile'],
         [ $self->installer ],
         ['MetaJSON'],
+        ['MetaProvides::Class'],
+        ['MetaProvides::Package'],
         ['ContributorsFromGit'],
         (
-            $ENV{'ILLER_AUTHOR_TEST'} ?
+            $ENV{'ILLERAT'} || $ENV{'ILLER_AUTHOR_TEST'} ?
             (
             ['Test::Kwalitee::Extra'],
             ['Test::NoTabs'],
             ['Test::EOL'],
             ['Test::EOF'],
+            ['Test::Version'],
             )
             :
             ()
@@ -180,166 +188,12 @@ sub configure {
 
 1;
 
-# ABSTRACT: Dist::Zilla like Csson
+
 
 __END__
 
-=head1 SYNOPSIS
+=head1 STATUS
 
-    ; in dist.ini
-    [@Author::CSSON]
-
-=head1 DESCRIPTION
-
-It is about the same as a dist.ini with these plugins specified:
-
-    [Git::GatherDir]
-    exclude_filename = Build.PL ; or equivalent
-    exclude_filename = META.json
-    exclude_filename = LICENSE
-    exclude_filename = README.md
-
-    [CopyFilesFromBuild]
-    copy = META.json
-    copy = LICENSE
-    copy = Build.PL ; or equivalent
-
-    [ReversionOnRelease]
-    prompt = 1
-
-    [OurPkgVersion]
-
-    [NextRelease]
-    format = %v  %{yyyy-MM-dd HH:mm:ss VVV}d
-
-    [PreviousVersion::Changelog]
-    [NextVersion::Semantic]
-    major =
-    minor = API Changes, New Features, Enhancements
-    revision = Revision, Bug Fixes, Documentation, Meta
-    format = %d.%02d%02d
-    numify_version = 0
-
-    [Git::Check]
-    allow_dirty = dist.ini
-    allow_dirty = Changes
-    allow_dirty = META.json
-    allow_dirty = README.md
-    allow_dirty = Build.PL ; or equivalent
-
-    ; if is_private == 0, see below
-    [GithubMeta]
-    issues = 1
-    homepage = http://metacpan.org/release/dist-name
-
-    [PodWeaver]
-    config_bundle = @Author::CSSON
-
-    [ReadmeAnyFromPod]
-    filename = README.md
-    type = markdown
-    location = root
-
-    [MetaNoIndex]
-    directory = t
-    directory = xt
-    directory = inc
-    directory = share
-    directory = eg
-    directory = examples
-
-    [Prereqs::FromCPANfile]
-
-    ; settable, see installer below
-    [ModuleBuildTiny]
-
-    [MetaJSON]
-
-    [ContributorsFromGit]
-
-    [Test::NoTabs]
-    [Test::EOL]
-    [Test::EOF]
-    [PodSyntaxTests]
-    [Test::Kwalitee::Extra]
-
-    [MetaYAML]
-
-    [License]
-
-    [ExtraTests]
-
-    [ShareDir]
-
-    [Manifest]
-
-    [ManifestSkip]
-
-    [CheckChangesHasContent]
-
-    [TestRelease]
-
-    [ConfirmRelease]
-
-    ; depends on is_private, see below
-    [UploadToCPAN or UploadToStratopan]
-
-    [Git::Commit]
-    commit_msg = %v
-    allow_dirty = dist.ini
-    allow_dirty = Changes
-    allow_dirty = META.json
-    allow_dirty = README.md
-    allow_dirty = Build.PL
-
-    [Git::Tag]
-    tag_format = %v
-    tag_message =
-
-    [Git::Push]
-    remotes_must_exist = 0
-
-=head1 OPTIONS
-
-=head2 homepage
-
-String. Default is the release's page on metacpan.org. Not set if C<is_private> is true.
-
-=head2 installer
-
-String. Default is L<ModuleBuildTiny|Dist::Zilla::ModuleBuildTiny>.
-
-=head2 is_private
-
-Boolean. Default is B<0>.
-
-If false: Adds github repository to meta, uses github as issue tracker, and includes L<UploadToCPAN|Dist::Zilla::Plugin::UploadToCPAN>.
-
-If true: Adds no github information, and includes L<UploadToStratopan|Dist::Zilla::Plugin::UploadToStratopan>.
-
-To remove L<UploadToStratopan|Dist::Zilla::Plugin::UploadToStratopan>, add this to your dist.ini:
-
-    -remove = UploadToStratopan
-
-To use L<UploadToStratopan|Dist::Zilla::Plugin::UploadToStratopan>, you need to specify C<repo> and C<stack> in dist.ini:
-
-    UploadToStratopan.repo = ...
-    UploadToStratopan.stack = ...
-
-=head2 is_task
-
-Boolean. Default is B<0>.
-
-If true, L<Dist::Zilla::Plugin::TaskWeaver> is included instead of L<Dist::Zilla::Plugin::PodWeaver>.
-
-=head2 weaver_config
-
-String. Default is L<@Author::CSSON|Pod::Weaver::PluginBundle::Author::CSSON>.
-
-=head1 SEE ALSO
-
-L<Dist::Zilla>
-
-L<Pod::Weaver::PluginBundle::Author::CSSON>
+Deprecated. See L<Dist::Iller::Config::Author::CSSON> instead.
 
 =cut

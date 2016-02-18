@@ -13,7 +13,8 @@ Revision history for Dist-Zilla-PluginBundle-CSSON
 
  [New Features]
 
- [Revision]
+ [Other Changes]
+  - Deprecated. Will be removed shortly.
 
 0.1102 2015-01-07T18:57:27Z CET
  [Enhancements]
