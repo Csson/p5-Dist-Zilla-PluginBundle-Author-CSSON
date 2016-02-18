@@ -1,4 +1,4 @@
-use 5.10.1;
+use 5.10.0;
 use strict;
 use warnings;
 
@@ -187,8 +187,6 @@ sub configure {
 }
 
 1;
-
-
 
 __END__
 
