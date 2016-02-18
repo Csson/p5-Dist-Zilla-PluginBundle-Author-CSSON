@@ -39,6 +39,7 @@
             "Dist::Zilla::Plugin::Clean" : "0.07",
             "Dist::Zilla::Plugin::ConfirmRelease" : "0",
             "Dist::Zilla::Plugin::CopyFilesFromBuild" : "0.151680",
+            "Dist::Zilla::Plugin::Deprecated" : "0",
             "Dist::Zilla::Plugin::DistIller::MetaGeneratedBy" : "0",
             "Dist::Zilla::Plugin::ExecDir" : "0",
             "Dist::Zilla::Plugin::Git" : "2.036",
@@ -156,6 +157,7 @@
       }
    },
    "version" : "0.1103",
-   "x_authority" : "cpan:CSSON"
+   "x_authority" : "cpan:CSSON",
+   "x_deprecated" : 1
 }
 

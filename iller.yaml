@@ -22,6 +22,8 @@ prereqs:
 plugins:
  - +config: Author::CSSON
 
+ - +plugin: Deprecated
+
 ---
 doctype: weaver
 

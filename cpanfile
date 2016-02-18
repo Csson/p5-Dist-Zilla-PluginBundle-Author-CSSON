@@ -1,4 +1,4 @@
-# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-18 21:58:11 UTC.
+# This file was auto-generated from iller.yaml by Dist::Iller on 2016-02-18 22:04:46 UTC.
 
 on runtime => sub {
     requires 'Config::INI' => '0';
@@ -35,6 +35,7 @@ on develop => sub {
     requires 'Dist::Zilla::Plugin::Clean' => '0.07';
     requires 'Dist::Zilla::Plugin::ConfirmRelease' => '0';
     requires 'Dist::Zilla::Plugin::CopyFilesFromBuild' => '0.151680';
+    requires 'Dist::Zilla::Plugin::Deprecated' => '0';
     requires 'Dist::Zilla::Plugin::DistIller::MetaGeneratedBy' => '0';
     requires 'Dist::Zilla::Plugin::ExecDir' => '0';
     requires 'Dist::Zilla::Plugin::Git' => '2.036';
